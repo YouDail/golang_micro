@@ -69,7 +69,7 @@ func init() {
 	os.Setenv("MICRO_CLIENT_RETRIES", "0")
 	os.Setenv("MICRO_CLIENT_REQUEST_TIMEOUT", "10m")
 
-	//设置服务监听地址为12280，http VERSION 是 1.1
+	//设置服务监听地址
 	f, err := os.OpenFile("service.json", os.O_WRONLY|os.O_TRUNC|os.O_CREATE, 0755)
 	if err != nil {
 		log.Infoln("init  创建初始化配置文件service.json失败: ", err)
@@ -77,7 +77,7 @@ func init() {
 
 	}
 
-	len, err := f.WriteString(`{"listen":":10010","httpversion":1}`)
+	len, err := f.WriteString(`{"listen":":"` + viper.GetString("httpPort") + `,"httpversion":1}`)
 	if err != nil {
 		log.Infoln("init  写入初始化配置文件service.json失败: ", err)
 		panic(err)
@@ -85,7 +85,7 @@ func init() {
 	f.Close()
 	log.Infoln("init  写入初始化配置文件service.json成功，写入字节数:  ", len)
 
-	os.Setenv("SERVICE_LISTEN", ":10010")
+	os.Setenv("SERVICE_LISTEN", ":" + viper.GetString("httpPort"))
 
 	log.Infoln("初始化redis连接")
 	common.InitReCli()
