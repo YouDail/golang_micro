@@ -1,37 +1,18 @@
 
 ## etcdv3
 
-#### 翻墙后pull官方镜像
+#### pull镜像
 
 ```
 
-docker pull quay.io/coreos/etcd:v3.3.13
 docker login --username=mwcx998 registry.cn-hangzhou.aliyuncs.com
-docker tag quay.io/coreos/etcd:v3.3.13 registry.cn-hangzhou.aliyuncs.com/ltd/etcd:v3.3.13
-docker push registry.cn-hangzhou.aliyuncs.com/ltd/etcd:v3.3.13
+docker pull registry.cn-hangzhou.aliyuncs.com/ltd/etcd:v3.3.13
+docker tag registry.cn-hangzhou.aliyuncs.com/ltd/etcd:v3.3.13 quay.io/coreos/etcd:v3.3.13 
 
 
 ```
 
-#### 自建Dockerfile
 
-```
-
-cat Dockerfile 
-FROM quay.io/coreos/etcd:v3.3.13 
-
-RUN mkdir /data
-
-CMD ["/usr/local/bin/etcd","-data-dir","/data","-listen-peer-urls","http://0.0.0.0:2380","--advertise-client-urls","http://0.0.0.0:2379","-listen-client-urls","http://0.0.0.0:2379","--initial-advertise-peer-urls","http://0.0.0.0:2380","--name","hackathon","--initial-cluster","hackathon=http://0.0.0.0:2380","-log-output","stdout"]
-
-```
-
-
-#### 构建
-```
-docker build -t quay.io/coreos/etcd:v3 .
-
-```
 
 #### 启动
 
