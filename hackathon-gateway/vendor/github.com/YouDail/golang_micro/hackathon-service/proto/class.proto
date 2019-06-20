@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+service ClassInfo {
+    rpc GetClassInfoNew(ClassIdRequest) returns (ClassIdNewResponse) {}
+    rpc GetClassName(ClassIdRequest) returns (ClassNameResponse) {}
+}
+
+
+message ClassIdRequest {
+    int64 ClassId = 1;
+}
+
+
+
+message Person {
+    int64 maleCount = 1;
+    int64 femaleCount = 2;
+}
+
+message ClassIdNewResponse {
+    string className = 1;
+    int64 classId = 2;
+    repeated Person Counts = 3;
+
+}
+
+
+message ClassNameResponse {
+    string className = 1;
+    int64 classId = 2;
+}

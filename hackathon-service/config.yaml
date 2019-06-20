@@ -1,0 +1,18 @@
+registry:
+  type: etcd
+  addr: 10.52.26.3:22379
+  ttl: 30s
+  interval: 10s
+client:
+  pool_ttl: 10s
+mysql:
+  Addr: 10.52.26.3:3306
+  User: root
+  PasswdSecret: 1913a79dc77c0ef862711763368319e1
+  DB: hackathon
+serviceName: hackathon.service.GetClass
+metrics:
+  Port : 10110
+  Name: hackathon.service.GetClass
+  Tag: hackathon
+consulAddr: 10.52.26.3:8500

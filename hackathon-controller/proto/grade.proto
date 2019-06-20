@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+service MaxClasses {
+    rpc GetMaxClassesNew(GradeIdRequest) returns (GradeIdNewResponse) {}
+}
+
+
+message GradeIdRequest {
+    int64 GradeId = 1;
+}
+
+
+message MaxNode {
+    int64 Count =1;
+    repeated int64 ClassId = 2;
+}
+
+
+
+message GradeIdNewResponse {
+    int64 gradeId = 1;
+    string gradeName = 2;
+    MaxNode male = 3;
+    MaxNode female = 4;
+}

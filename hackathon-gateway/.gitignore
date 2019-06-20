@@ -1,0 +1,6 @@
+hackathon-gateway
+*.swp
+.idea
+logs
+test
+*/test

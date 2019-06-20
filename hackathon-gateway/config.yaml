@@ -1,0 +1,18 @@
+redis:
+  Addr : 10.52.26.3:6379
+  DB : 12
+registry:
+  type: etcd
+  addr: 10.52.26.3:22379
+  ttl: 30s
+  interval: 10s
+client:
+  pool_ttl: 10s
+svc:
+  Controller: hackathon.controller.GetMaxClass
+  Service: hackathon.service.GetClass
+metrics:
+  Port : 10110
+  Name: hackathon.gateway
+  Tag: hackathon
+consulAddr: 10.52.26.3:8500

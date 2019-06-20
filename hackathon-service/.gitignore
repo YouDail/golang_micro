@@ -1,0 +1,6 @@
+hackathon-service
+*.swp
+.idea
+logs
+test
+*/test

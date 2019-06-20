@@ -1,0 +1,6 @@
+hackathon-controller
+*.swp
+.idea
+logs
+test
+*/test
