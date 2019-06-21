@@ -16,3 +16,4 @@ metrics:
   Name: hackathon.gateway
   Tag: hackathon
 consulAddr: 10.52.26.3:8500
+httpPort: 10010
