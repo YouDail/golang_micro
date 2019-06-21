@@ -108,7 +108,11 @@ func main() {
 	//service.Init()
 
 	log.Infoln("register handler to etcdV3")
-	proto.RegisterClassInfoHandler(service.Server(), new(handler.ClassId))
+	error := proto.RegisterClassInfoHandler(service.Server(), new(handler.ClassId))
+	if err != nil {
+		log.Errorln("register handler to etcdV3 error:", err)
+		panic(err)
+	}
 
 	log.Infoln("初始化数据库引擎")
 	common.InitDB()
