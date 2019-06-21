@@ -6,6 +6,6 @@ RUN apk update \
 
 ADD config.yaml hackathon-gateway service.json /
 
-EXPOSE 10010 10110
+EXPOSE 10010 10112
 CMD ["/hackathon-gateway"]
 
