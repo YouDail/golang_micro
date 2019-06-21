@@ -137,6 +137,11 @@ dstat --top-cpu --top-io --top-mem
 #### 使用go-torch生成火焰图
 
 ```
+
+git clone https://github.com/brendangregg/FlameGraph.git
+cp flamegraph.pl /usr/local/bin
+go get -v github.com/uber/go-torch
+
 在上面的压测过程中，使用go-torch来生成采样报告，采集时长是2分钟:
 
 go-torch -u http://10.52.26.3:10110 -t 120
