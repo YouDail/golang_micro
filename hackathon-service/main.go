@@ -130,7 +130,7 @@ func main() {
 	log.Infoln("Prometheus metrics 地址: http://localhost:" + viper.GetString("metrics.Port") + "/metrics")
 
 	log.Infoln("run the server")
-	err := service.Run()
+	err = service.Run()
 	if err != nil {
 		panic(err)
 	}
