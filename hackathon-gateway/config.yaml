@@ -12,7 +12,7 @@ svc:
   Controller: hackathon.controller.GetMaxClass
   Service: hackathon.service.GetClass
 metrics:
-  Port : 10110
+  Port : 10112
   Name: hackathon.gateway
   Tag: hackathon
 consulAddr: 10.52.26.3:8500
