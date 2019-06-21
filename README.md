@@ -89,6 +89,18 @@ go test -v -bench=".*"
 
 ```
 
+
+#### 使用go-wrk进行压测
+
+```
+执行如下命令，进行30s 1W次高并发场景模拟：
+
+for i in {0..11}; do go-wrk -d 30 -n 10000 http://10.52.26.3:10010/hackathon/maxClasses/$i;done
+
+```
+
+
+
 #### 使用vegeta进行压测
 ```
 wget https://github.com/tsenart/vegeta/releases/download/cli%2Fv12.5.1/vegeta-12.5.1-linux-amd64.tar.gz
@@ -230,6 +242,8 @@ select * from (select classId,  sum(case when gender=2 then 1 else 0 end) as fem
 [viper](https://github.com/spf13/viper)
 
 [vegeta](https://github.com/tsenart/vegeta)
+
+[go-wrk](https://github.com/adjust/go-wrk)
 
 [golang-tool-pprof](https://github.com/iotd/jackliu-go-programming-note/blob/master/Golang-tool-pprof.md)
 
