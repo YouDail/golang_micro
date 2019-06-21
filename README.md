@@ -1,6 +1,6 @@
 ## hackathon 
 
-A small go micro project
+A small go microservice  project
 
 
 
