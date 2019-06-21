@@ -134,6 +134,20 @@ dstat --top-cpu --top-io --top-mem
 ```
 
 
+#### 使用go-torch生成火焰图
+
+```
+在上面的压测过程中，使用go-torch来生成采样报告，采集时长是2分钟:
+
+go-torch -u http://10.52.26.3:10110 -t 120
+
+采样完成后，输出信息：Writing svg to torch.svg 表示采样成功，下面开启web服务，通过浏览器打开torch.svg查看火焰图:
+
+python -m SimpleHTTPServer 20001
+
+```
+
+
 #### Prometheus  metrics
 
 ```
@@ -246,6 +260,8 @@ select * from (select classId,  sum(case when gender=2 then 1 else 0 end) as fem
 [go-wrk](https://github.com/adjust/go-wrk)
 
 [golang-tool-pprof](https://github.com/iotd/jackliu-go-programming-note/blob/master/Golang-tool-pprof.md)
+
+[go-torch](https://github.com/uber-archive/go-torch)
 
 [prometheus/client_golang](https://github.com/prometheus/client_golang/tree/master/prometheus/promhttp)
 
