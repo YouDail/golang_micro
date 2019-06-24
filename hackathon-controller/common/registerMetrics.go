@@ -35,15 +35,19 @@ func RegisterMetrics() {
 
 func RegisterToConsul(ip string) error {
 	log.Infoln("RegisterToConsul 接受参数: ", ip)
-	var check CheckNode
-	check.HTTP = "http://" + ip + ":" + viper.GetString("metrics.Port") + "/metrics"
-	check.Interval = "5s"
-	var metrics RegMetrics
-	metrics.Name = viper.GetString("metrics.Name")
-	metrics.Address = ip
-	metrics.ID = viper.GetString("metrics.Name") + "-" + strings.Split(ip, ".")[3]
-	metrics.MetricsPath = "/metrics"
-	metrics.Port = viper.GetInt("metrics.Port")
+	check := CheckNode{
+		HTTP:     "http://" + ip + ":" + viper.GetString("metrics.Port") + "/metrics",
+		Interval: "5s",
+	}
+
+	metrics := RegMetrics{
+		Name:        viper.GetString("metrics.Name"),
+		Address:     ip,
+		ID:          viper.GetString("metrics.Name") + "-" + strings.Split(ip, ".")[3],
+		MetricsPath: "/metrics",
+		Port:        viper.GetInt("metrics.Port"),
+	}
+	
 	metrics.Tags = append(metrics.Tags, viper.GetString("metrics.Tag"), "go_process")
 	metrics.Checks = append(metrics.Checks, check)
 	metricsStr, err := json.Marshal(&metrics)
